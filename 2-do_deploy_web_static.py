@@ -19,13 +19,13 @@ def do_deploy(archive_path):
         # upload the file to the server
         put(archive_path, '/tmp/')
 
-        file_name = archive_path.split('/')[-1].splite('.')
+        file_name = archive_path.split('/')[-1].split('.')
         del file_name[-1]  # remove extension
         file_name = ' '.join(file_name)
         file_path = "/data/web_static/releases/{}".format(file_name)
 
         run("mkdir -p {}".format(file_path))
-        run("tar -xzvf /tmp/{} -C {}".format(archive_path, file_path))
+        run("tar -xzvf /tmp/{} -C {}".format(file_name, file_path))
         run("rm /tmp/{}".format(archive_path))
 
         run("mv {0}/web_static/* {0}".format(file_path))
