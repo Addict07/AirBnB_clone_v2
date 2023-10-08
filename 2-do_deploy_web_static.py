@@ -7,8 +7,10 @@ from fabric.api import put
 from fabric.api import run
 
 env.hosts = ['54.237.3.221', '54.162.78.235']
+
+
 def do_deploy(archive_path):
-    """distributes an archive to your web servers, using the function do_deploy"""
+    """distributes an archive to your web servers, using the fun do_deploy"""
 
     if not exists(archive_path):
         return False
@@ -18,7 +20,7 @@ def do_deploy(archive_path):
         put(archive_path, '/tmp/')
 
         file_name = archive_path.split('/')[-1].splite('.')
-        del file_name[-1] # remove extension
+        del file_name[-1]  # remove extension
         file_name = ' '.join(file_name)
         file_path = "/data/web_static/releases/{}".format(file_name)
 
@@ -33,7 +35,7 @@ def do_deploy(archive_path):
         run("ln -s {} /data/web_static/current".format(file_path, ))
 
         print("New version deployed!")
-    except:
+    except Exception:
         return False
 
     return True
