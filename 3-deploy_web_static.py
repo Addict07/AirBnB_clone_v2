@@ -19,7 +19,7 @@ def do_pack():
     file_name = "web_static_{}.tgz".format(time_now)
 
     result = local("tar -czvf ./versions/{} web_static/".format(file_name))
-    if result and result.succeeded:
+    if result.succeeded:
         return "versions/{}".format(file_name)
     else:
         return None
