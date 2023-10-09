@@ -14,7 +14,7 @@ echo "<html>
     <body>
         <h2>Hello From ~AirBnB~</h2>
     </body>
-    </html>" > /data/web_static/releases/test/index.html
+</html>" > /data/web_static/releases/test/index.html
 
 ln -sf /data/web_static/releases/test/ /data/web_static/current
 chown -R ubuntu:ubuntu /data/
