@@ -18,7 +18,8 @@ def do_clean(number=0):
 
     # remove Host
     path = "/data/web_static/releases/"
-    total = run("find {} -type d -name 'web_static*' | wc -l".format(path)).stdout.strip()
+    total = run("find {} -type d -name 'web_static*' | wc -l"
+                .format(path)).stdout.strip()
     total = int(total)
     c = "ls -dt {}web_static_* | tail -{} | xargs rm -rf"
     run(c.format(path, total - number))
