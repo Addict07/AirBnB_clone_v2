@@ -17,7 +17,8 @@ def do_clean(number=0):
     local(c.format('versions/*.tgz', total - number))
 
     # remove Host
-    path = '/data/web_static/releases/web_static_*'
-    total = run("ls -l {} | wc -l".format(path)).stdout.strip()
+    path = "/data/web_static/releases/"
+    total = run("find {} -type d -name 'web_static*' | wc -l".format(path)).stdout.strip()
     total = int(total)
+    c = "ls -lt {} | grep 'web_static_' | tail {} | xargs rm -rf"
     run(c.format(path, total - number))
