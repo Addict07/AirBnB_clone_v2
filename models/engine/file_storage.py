@@ -65,3 +65,7 @@ class FileStorage:
                     to_del.append(unique_id)
             for one in to_del:
                 del self.__objects[one]
+
+    def close(self):
+        """close method to reload"""
+        self.reload()
