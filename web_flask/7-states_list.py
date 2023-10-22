@@ -8,10 +8,12 @@ from models.state import State
 from flask import Flask, render_template
 app = Flask(__name__)
 
+
 @app.teardown_appcontext
 def close_session(error):
     """After each request you must remove the current Session"""
     storage.close()
+
 
 @app.route('/states_list', strict_slashes=False)
 def states_list():
