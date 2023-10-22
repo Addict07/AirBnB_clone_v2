@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<HTML lang="en">
+    <HEAD>
+        <TITLE>HBNB</TITLE>
+    </HEAD>
+    <BODY>
+        {% if h1 %}
+        <H1>{{ h1 }}</H1>
+        {% endif %}
+        {% if h3 %}
+        <H3>{{ h3 }}</H3>
+        {% endif %}
+        {% if instances %}
+        <UL>
+            {% for instance in instances|sort(attribute="name") %}
+            <LI>{{ instance.id }}: <B>{{ instance.name }}</B></LI>
+            {% endfor %}
+        </UL>
+        {% endif %}
+    </BODY>
+</HTML>
